@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://lucid-draft.vercel.app/";
+const API_URL = "https://luciddraftbackend.onrender.com";
 // const API_URL = "http://localhost:5000";
 
 const api = axios.create({
