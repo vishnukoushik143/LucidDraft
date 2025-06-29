@@ -2,6 +2,7 @@ import { useNavigate } from "react-router";
 import api from "../api.js";
 
 import delete_icon from "../assets/delete_icon.svg";
+import edit_icon from "../assets/edit_icon.svg";
 
 function DisplayBox({ entry }) {
   console.log(entry);
@@ -38,12 +39,20 @@ function DisplayBox({ entry }) {
         </p>
       </div>
 
-      <div>
+      <div className="flex w-fit flex-row gap-4">
         <button
           onClick={handleDelete}
           className="rounded p-2 hover:bg-gray-300"
         >
           <img src={delete_icon} />
+        </button>
+        <button
+          onClick={() =>
+            navigate(`/edit-entry/${entry._id}`, { replace: true })
+          }
+          className="rounded p-2 hover:bg-gray-300"
+        >
+          <img src={edit_icon} />
         </button>
       </div>
     </div>

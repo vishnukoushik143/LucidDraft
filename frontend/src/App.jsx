@@ -17,6 +17,8 @@ import HomePage from "./pages/HomePage";
 import SettingsPage from "./pages/SettingsPage";
 
 import ProtectedRoute from "./components/ProtectedRoute";
+
+import EditEntryPage from "./pages/EditEntryPage";
 import AddEntryPage from "./pages/AddEntryPage";
 import EntryPage from "./pages/EntryPage";
 
@@ -37,6 +39,7 @@ const router = createBrowserRouter(
         <Route element={<MainLayout />}>
           <Route path="/my-entries" element={<HomePage />} />
           <Route path="/entry/:_id" element={<EntryPage />} />
+          <Route path="/edit-entry/:_id" element={<EditEntryPage />} />
           <Route path="/new-entry" element={<AddEntryPage />} />
           <Route path="/settings" element={<SettingsPage />} />
           {/* <Route path="contact" element={<Contact />} /> */}

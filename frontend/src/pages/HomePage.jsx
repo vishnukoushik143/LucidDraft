@@ -21,7 +21,7 @@ function HomePage() {
     fetchEntries();
   }, []);
 
-  if (entries == null) return <div>Loading.....</div>;
+  if (entries == null) return <div className="order-2">Loading.....</div>;
 
   return (
     <section className="relative z-0 mb-4 flex h-fit w-full flex-col px-2 md:order-2 md:mx-auto md:w-[80%]">
