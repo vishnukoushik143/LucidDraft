@@ -3,7 +3,7 @@ import { replace, useNavigate } from "react-router";
 
 import { useUser } from "../context/UserContext.jsx";
 
-import api from "../../../../blog_app/frontend/src/api.js";
+import api from "../api.js";
 
 function LoginPage() {
   const { setUsername } = useUser();
