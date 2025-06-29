@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { replace, useNavigate } from "react-router";
-import api from "../../../../blog_app/frontend/src/api.js";
+import api from "../api.js";
 
 function RegisterPage() {
   const navigate = useNavigate();
