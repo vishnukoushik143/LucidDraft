@@ -13,7 +13,7 @@ export default app;
 
 app.use(
     cors({
-        origin: "http://localhost:5173",
+        origin: "https://lucid-draft-6of4.vercel.app/",
         credentials: true,
     })
 );
