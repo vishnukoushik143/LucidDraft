@@ -13,11 +13,8 @@ export default app;
 
 app.use(
     cors({
-<<<<<<< Updated upstream
-        origin: "https://lucid-draft-6of4.vercel.app/",
-=======
+        // origin: "https://lucid-draft-6of4.vercel.app/",
         origin: "*",
->>>>>>> Stashed changes
         credentials: true,
     })
 );
