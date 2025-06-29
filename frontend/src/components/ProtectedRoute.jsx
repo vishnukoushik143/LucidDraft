@@ -13,7 +13,7 @@ function ProtectedRoute() {
   useEffect(() => {
     const checkAuth = async () => {
       api
-        .get("auth/login-status")
+        .get("/auth/login-status")
         .then((res) => {
           setIsAuthorized(res.data.isAuthorized);
         })
