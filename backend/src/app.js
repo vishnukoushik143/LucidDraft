@@ -30,6 +30,11 @@ mongoose
         console.log(err);
     });
 
+app.get("/", (req, res) => {
+    res.json({
+        message: "Welcome to the backend of the app",
+    });
+});
 app.use("/auth", authRouter);
 app.use("/user", AuthMiddleware, userRouter);
 // app.use("notifications", AuthMiddleware, NotificationRoutes);
