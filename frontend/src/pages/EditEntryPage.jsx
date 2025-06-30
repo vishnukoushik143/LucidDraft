@@ -78,7 +78,7 @@ function EditEntryPage(props) {
           </button>
           <button
             onClick={() => {
-              setEntry(""), setTitle("");
+              setContent(""), setTitle("");
             }}
             className="rounded bg-red-700 px-4 py-2 text-white hover:bg-red-600"
           >
