@@ -2,13 +2,35 @@ import { useState } from "react";
 import { useNavigate, useParams } from "react-router";
 
 import api from "../api.js";
+import { use } from "react";
+import { useEffect } from "react";
 
-function EditEntryPage(props) {
+function EditEntryPage() {
+  console.log("Edit Entry Page. Id of the entry requested is ");
+  console.log(useParams());
+
   const { _id } = useParams();
-  const [title, setTitle] = useState(props.entry.title);
-  const [content, setContent] = useState(props.entry.content);
-
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchEntry = async () => {
+      api
+        .get(`/user/entry/${_id}`)
+        .then((response) => {
+          console.log("Entry fetched successfully:", response.data);
+          setTitle(response.data.title);
+          setContent(response.data.content);
+        })
+        .catch((error) => {
+          console.log("Error fetching entry:", error);
+          navigate("/my-entries", { replace: true });
+        });
+    };
+
+    fetchEntry();
+  }, []);
 
   const handleOnChange = (e) => {
     if (e.target.id == "title") {
@@ -74,15 +96,13 @@ function EditEntryPage(props) {
             type="submit"
             className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
           >
-            Submit
+            Save Changes
           </button>
           <button
-            onClick={() => {
-              setContent(""), setTitle("");
-            }}
+            onClick={() => navigate("/my-entries", { replace: true })}
             className="rounded bg-red-700 px-4 py-2 text-white hover:bg-red-600"
           >
-            Reset
+            Cancel
           </button>
         </div>
       </form>

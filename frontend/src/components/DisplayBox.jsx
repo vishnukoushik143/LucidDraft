@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { Navigate, useNavigate } from "react-router";
 import api from "../api.js";
 
 import delete_icon from "../assets/delete_icon.svg";
@@ -47,9 +47,7 @@ function DisplayBox({ entry }) {
           <img src={delete_icon} />
         </button>
         <button
-          onClick={() =>
-            navigate(`/edit-entry/${entry._id}`, { replace: true })
-          }
+          onClick={() => navigate(`/edit-entry/${entry._id}`)}
           className="rounded p-2 hover:bg-gray-300"
         >
           <img src={edit_icon} />

@@ -29,8 +29,8 @@ function EntryPage() {
 
   return (
     <main className="mx-auto h-full w-full md:order-2 md:w-[80%]">
-      <h2>{entry.title}</h2>
-      <p>{entry.content}</p>
+      <h2 className="my-10 text-xl font-medium">{entry.title}</h2>
+      <pre>{entry.content}</pre>
     </main>
   );
 }

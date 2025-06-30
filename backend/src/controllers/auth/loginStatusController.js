@@ -5,6 +5,7 @@ import User from "../../models/User.js";
 async function loginStatusController(req, res) {
     try {
         const token = req.cookies.token;
+        console.log("Token received:", token);
         if (!token) {
             return res
                 .status(401)
