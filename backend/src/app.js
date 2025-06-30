@@ -13,7 +13,7 @@ export default app;
 
 app.use(
     cors({
-        origin: "https://luciddraftfrontend.onrender.com",
+        origin: process.env.FRONTEND_URL,
         credentials: true,
     })
 );
