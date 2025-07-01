@@ -7,19 +7,19 @@ import DisplayBox from "../components/DisplayBox";
 function HomePage() {
   const [entries, setEntries] = useState(null);
 
-  const handleReload = () => window.location.reload();
+  const handleDataReload = async () => await fetchEntries();
+
+  const fetchEntries = async () => {
+    try {
+      const res = await api.get("/user/entries");
+      setEntries([...res.data]);
+      console.log(res);
+    } catch (error) {
+      console.error("Error fetching entries:", error);
+    }
+  };
 
   useEffect(() => {
-    const fetchEntries = async () => {
-      try {
-        const res = await api.get("/user/entries");
-        setEntries([...res.data]);
-        console.log(res);
-      } catch (error) {
-        console.error("Error fetching entries:", error);
-      }
-    };
-
     fetchEntries();
   }, []);
 
@@ -33,7 +33,7 @@ function HomePage() {
           <DisplayBox
             entry={entry}
             key={entry._id}
-            handleReload={handleReload}
+            handleDataReload={handleDataReload}
           />
         );
       })}
