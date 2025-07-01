@@ -7,6 +7,8 @@ import DisplayBox from "../components/DisplayBox";
 function HomePage() {
   const [entries, setEntries] = useState(null);
 
+  const handleReload = () => window.location.reload();
+
   useEffect(() => {
     const fetchEntries = async () => {
       try {
@@ -27,7 +29,13 @@ function HomePage() {
     <section className="relative z-0 mb-4 flex h-fit w-full flex-col px-2 md:order-2 md:mx-auto md:w-[80%]">
       <h2 className="text-center text-xl font-medium">Your Entries</h2>
       {entries.map((entry) => {
-        return <DisplayBox entry={entry} key={entry._id} />;
+        return (
+          <DisplayBox
+            entry={entry}
+            key={entry._id}
+            handleReload={handleReload}
+          />
+        );
       })}
       <div className="h-16 w-full"></div>
       <NavLink

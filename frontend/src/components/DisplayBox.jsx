@@ -4,12 +4,10 @@ import api from "../api.js";
 import delete_icon from "../assets/delete_icon.svg";
 import edit_icon from "../assets/edit_icon.svg";
 
-function DisplayBox({ entry }) {
+function DisplayBox({ entry, handleReload }) {
   console.log(entry);
   const navigate = useNavigate();
   const date = entry.date || new Date();
-
-  const handleRefresh = () => navigate(0);
 
   const handleDelete = async (e) => {
     api
@@ -20,7 +18,7 @@ function DisplayBox({ entry }) {
       .catch((error) => {
         console.error("Error deleting entry:", error);
       });
-    navigate(0);
+    handleReload();
   };
 
   return (
