@@ -7,7 +7,10 @@ import DisplayBox from "../components/DisplayBox";
 function HomePage() {
   const [entries, setEntries] = useState(null);
 
-  const handleDataReload = async () => await fetchEntries();
+  const handleDataReload = async () => {
+    setEntries(null);
+    await fetchEntries();
+  };
 
   const fetchEntries = async () => {
     try {
